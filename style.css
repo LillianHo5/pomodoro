@@ -11,12 +11,20 @@ body {
     width: 100%;
 }
 
+#study-count { 
+    text-align: center;
+
+}
+
+.study { 
+    display: inline-block;
+    /* margin-bottom: 30px; */
+}
+
 .timer { 
     color: #fff; 
     text-align: center;
-    /*
     background-color:#827397; 
-    */
     width: 20rem;
     height: 20rem; 
     border: 5px solid #fff; 
@@ -35,12 +43,18 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: 30px; /* to center the short break button with the clock */
 }
 
 .btn { 
     background-color: #827397;
     color: #fff; 
     margin: 10px;
+}
+
+#add-task { 
+    margin-left: auto;
+    border-radius: 100%;
 }
 
 .fa-play, .fa-arrows-rotate { 
