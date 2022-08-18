@@ -1,6 +1,6 @@
 # Pomodoro!
 
-## Features: 
+## Current features: 
 * A timer that counts down from the desired amount of time to work and rings when the session is complete 
 * Pomodoro button to start work time (default is currently set at 25 minutes to match the traditional pomodoro technique) 
 * Short break/long break button that allows for users to take 5 minute breaks or 10 minute breaks, respectively 
