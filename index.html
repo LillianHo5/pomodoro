@@ -26,25 +26,25 @@
 <body onload="start()">
     <div class="container">
         <!-- Heading -->
-        <h1 class="text-center my-5 heading">Pomodoro!</h1>
+        <h1 class="heading text-center my-5 text">Pomodoro!</h1>
 
         <!-- Study Count -->
         <div id="study-count">
-            <h5 class="heading study mb-5">Minutes focused during this session:</h5>
-            <h5 class="heading study" id="total-count"></h5>
+            <h5 class="text study mb-5">Minutes focused during this session:</h5>
+            <h5 class="text study" id="total_count"></h5>
         </div>
 
         <!-- Main Timer -->
         <div class="container timer">
             <div class="row">
                 <div class="col-5">
-                    <h4 id="minutes"></h4>
+                    <h4 class="clock-text" id="minutes"></h4>
                 </div>
                 <div class="col-2">
-                    <h4>:</h4>
+                    <h4 class="clock-text">:</h4>
                 </div>
                 <div class="col-5">
-                    <h4 id="seconds"></h4>
+                    <h4 class="clock-text" id="seconds"></h4>
                 </div>
             </div>
         </div>
@@ -64,9 +64,9 @@
     </div>
 
     <!-- To-Do Button -->
-    <div class="container buttons" id="to-do">
+    <!-- <div class="container buttons" id="to-do">
         <button id="add-task" class="btn">+</button>
-    </div> 
+    </div> --> 
 
      <!-- Bootstrap Bundle with Popper -->
      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

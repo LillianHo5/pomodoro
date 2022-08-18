@@ -1,5 +1,6 @@
 var minutes = 25;
 var seconds = '00';
+var total_count = 0; 
 var minutes_interval;
 var seconds_interval;
 var short_clicked = false;
@@ -12,6 +13,7 @@ var shortBreak = document.getElementById('short_break');
 var longBreak = document.getElementById('long_break');
 
 function start() {
+    document.getElementById('total_count').innerHTML = total_count;
     document.getElementById('minutes').innerHTML = minutes;
     document.getElementById('seconds').innerHTML = seconds;
 }
@@ -93,6 +95,7 @@ function break_time(x, y) {
                 document.getElementById('done').innerHTML =
                     'Break time is over! Click \'Pomodoro\' to start a new study session!';
 
+                document.getElementById('total_count').innerHTML = total_count;
                 document.getElementById('done').classList.add('show_message');
 
                 if (long_clicked) {
@@ -125,6 +128,7 @@ function pomodoro_start() {
     pomodoro_clicked = true;
     pomodoro.disabled = true;
 
+    
     minutes = 24;
     seconds = 59;
 
@@ -136,6 +140,7 @@ function pomodoro_start() {
     * 1 minute = 60,000 milliseconds 
     * 1 second = 1,000 milliseconds 
     */
+    total_count = total_count + minutes + 1;
     minutes_interval = setInterval(minutesTimer, 60000);
     seconds_interval = setInterval(secondsTimer, 1000);
 
@@ -160,9 +165,18 @@ function pomodoro_start() {
                 clearInterval(seconds_interval);
 
                 document.getElementById('done').innerHTML =
-                    'Session completed! Take a break.';
+                    'Session completed! Great job, and take a break.';
 
+                document.getElementById('total_count').innerHTML = total_count;
                 document.getElementById('done').classList.add('show_message');
+                
+                setTimeout(removeMessage, 10000);
+
+                function removeMessage() { 
+                    document.getElementById('done').classList.remove('show_message');
+                    document.getElementById('done').innerHTML ='';
+                }
+
                 pomodoro.disabled = false;
                 ring.play();
             }
