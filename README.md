@@ -9,5 +9,5 @@
 
 ## Features to add: 
 - [ ] + and - buttons to increase/decrease time interval for work time 
-- [ ] pause button 
+- [ ] pause button and a resume feature
 - [ ] measure to prevent users from clicking the break button in the middle of a work session
