@@ -1,5 +1,8 @@
 # Pomodoro!
 
+## Check it out here! 
+https://lillianho5.github.io/pomodoro/
+
 ## Current features: 
 * A timer that counts down from the desired amount of time to work and rings when the session is complete 
 * Pomodoro button to start work time (default is currently set at 25 minutes to match the traditional pomodoro technique) 
