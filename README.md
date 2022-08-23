@@ -1,6 +1,6 @@
 # Pomodoro!
 
-## Check it out here! 
+## Check it out here: 
 https://lillianho5.github.io/pomodoro/
 
 ## Current features: 
