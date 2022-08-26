@@ -18,7 +18,6 @@ body {
 
 .study { 
     display: inline-block;
-    /* margin-bottom: 30px; */
 }
 
 .timer { 
@@ -51,10 +50,6 @@ body {
     margin: 10px;
 }
 
-#add-task { 
-    margin-left: auto;
-    border-radius: 100%;
-}
 
 .fa-play, .fa-arrows-rotate { 
     color: #e3f6f5; 

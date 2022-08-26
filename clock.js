@@ -4,9 +4,11 @@ var total_count = 0;
 var minutes_interval;
 var seconds_interval;
 var short_clicked = false;
-var long_clicked = false;
+var long_clicked = false; 
+var num_of_work_intervals = 0; // keep track of how many work intervals user has completed to enable long break 
 
 var pomodoro_clicked = false;
+var paused = false;
 var ring = new Audio('bell.mp3');
 var pomodoro = document.getElementById('pomodoro');
 var shortBreak = document.getElementById('short_break');
@@ -16,6 +18,9 @@ function start() {
     document.getElementById('total_count').innerHTML = total_count;
     document.getElementById('minutes').innerHTML = minutes;
     document.getElementById('seconds').innerHTML = seconds;
+
+    shortBreak.disabled = true; 
+    longBreak.disabled = true; // disable by default so user cannot jump around from break to pomodoro and vice versa
 }
 
 shortBreak.addEventListener('click', function handleShortClick() {
@@ -57,10 +62,16 @@ longBreak.addEventListener('click', function handleLongClick() {
 });
 
 function break_time(x, y) {
-    if (long_clicked)
+    if (long_clicked || short_clicked) { 
         longBreak.disabled = true;
-    if (short_clicked)
-        shortBreak.disabled = true;
+        shortBreak.disabled = true; 
+    }
+    /* 
+    if (long_clicked) 
+        longBreak.disabled = true;  
+    if (short_clicked) 
+        shortBreak.disabled = true; 
+    */ 
     minutes = x;
     seconds = y;
 
@@ -98,11 +109,15 @@ function break_time(x, y) {
                 document.getElementById('total_count').innerHTML = total_count;
                 document.getElementById('done').classList.add('show_message');
 
+                /* 
                 if (long_clicked) {
                     longBreak.disabled = false;
                 } else if (short_clicked) {
                     shortBreak.disabled = false;
                 }
+                */
+                longBreak.disabled = false; 
+                shortBreak.disabled = false; 
                 ring.play();
             }
             seconds = 60;
@@ -125,11 +140,12 @@ function pomodoro_start() {
             shortBreak.disabled = false;
         }
     }
-    pomodoro_clicked = true;
-    pomodoro.disabled = true;
-
+   
+    //document.getElementById('pomodoro').innerHTML = 'Pause'; // turn pomodoro button to pause (for pause/resume feature)
+    pomodoro.disabled = true; // prevents users from spamming the pomodoro button, which would mess up the countdown
+    shortBreak.disabled = true; 
     
-    minutes = 24;
+    minutes = 1;    // default values: minutes = 24, seconds = 59 (add buttons to change this default)
     seconds = 59;
 
     document.getElementById('minutes').innerHTML = minutes;
@@ -178,9 +194,26 @@ function pomodoro_start() {
                 }
 
                 pomodoro.disabled = false;
+                shortBreak.disabled = false;
+                num_of_work_intervals += 1; // +1 everytime a work interval is completed 
+
+                if (num_of_work_intervals == 4) { 
+                    longBreak.disabled = false; 
+                    num_of_work_intervals = 0; 
+                }
                 ring.play();
             }
             seconds = 60;
         }
     }
 }
+
+/*
+pomodoro.addEventListener('click', function handlePauseClick() { 
+    if(document.getElementById('pomodoro').innerHTML == 'Pause' && pomodoro_clicked) { 
+        paused = true; 
+        clearInterval(minutes_interval);
+        clearInterval(seconds_interval); 
+    }
+});
+*/
