@@ -38,7 +38,7 @@
         <div class="container timer">
             <div class="row">
                 <div class="col-5">
-                    <h4 class="clock-text" id="minutes"></h4>
+                    <h4 class="clock-text" id="minutes">25</h4>
                 </div>
                 <div class="col-2">
                     <h4 class="clock-text">:</h4>
@@ -48,6 +48,13 @@
                 </div>
             </div>
         </div>
+
+        <!-- Increase/Decrease Time Buttons -->
+        <div class="container buttons">
+            <button id="increase" class="btn">+</button>
+            <button id="decrease" class="btn">-</button>
+        </div>
+
     </div>
 
     <div>
@@ -56,9 +63,9 @@
 
     <!-- Start and Reset Buttons -->
     <div class="container buttons">
-        <button id = "pomodoro" class="btn" onclick="pomodoro_start()">Pomodoro</button>
-        <button id = "short_break" class="btn">Short Break</button>
-        <button id = "long_break" class="btn">Long Break</button>
+        <button id="pomodoro" class="btn" onclick="pomodoro_start()">Pomodoro</button>
+        <button id="short_break" class="btn">Short Break</button>
+        <button id="long_break" class="btn">Long Break</button>
         <!-- Reset to default values -->
         <!-- a href="index.html"><i class="fa-solid fa-arrows-rotate fa-2x"></i></a> -->
     </div>
