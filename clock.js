@@ -1,10 +1,10 @@
 var minutes = 25;
 var seconds = '00';
-var total_count = 0; 
+var total_count = 0;
 var minutes_interval;
 var seconds_interval;
 var short_clicked = false;
-var long_clicked = false; 
+var long_clicked = false;
 var num_of_work_intervals = 0; // keep track of how many work intervals user has completed to enable long break 
 
 var pomodoro_clicked = false;
@@ -13,7 +13,7 @@ var ring = new Audio('bell.mp3');
 var pomodoro = document.getElementById('pomodoro');
 var shortBreak = document.getElementById('short_break');
 var longBreak = document.getElementById('long_break');
-var increaseTime = document.getElementById('increase'); 
+var increaseTime = document.getElementById('increase');
 var decreaseTime = document.getElementById('decrease');
 
 function start() {
@@ -21,24 +21,24 @@ function start() {
     document.getElementById('minutes').innerHTML = minutes;
     document.getElementById('seconds').innerHTML = seconds;
 
-   // shortBreak.disabled = true; 
+    shortBreak.disabled = true; 
     longBreak.disabled = true; // disable by default so user cannot jump around from break to pomodoro and vice versa
 }
 
-increaseTime.addEventListener('click', function handleIncreaseClick() { 
-    if (minutes >= 60) { 
-        increaseTime.disabled = true; 
-    } else { 
+increaseTime.addEventListener('click', function handleIncreaseClick() {
+    if (minutes >= 60) {
+        increaseTime.disabled = true;
+    } else {
         minutes = minutes + 5;
         document.getElementById('minutes').innerHTML = minutes;
         decreaseTime.disabled = false;
     }
 });
 
-decreaseTime.addEventListener('click', function() { 
-    if (minutes <= 10) { 
-        decreaseTime.disabled = true; 
-    } else { 
+decreaseTime.addEventListener('click', function () {
+    if (minutes <= 10) {
+        decreaseTime.disabled = true;
+    } else {
         minutes -= 5;
         document.getElementById('minutes').innerHTML = minutes;
         increaseTime.disabled = false;
@@ -84,11 +84,11 @@ longBreak.addEventListener('click', function handleLongClick() {
 });
 
 function break_time(x, y) {
-    if (long_clicked || short_clicked) { 
+    if (long_clicked || short_clicked) {
         longBreak.disabled = true;
-        shortBreak.disabled = true; 
+        shortBreak.disabled = true;
     }
-    
+
     minutes = x;
     seconds = y;
 
@@ -100,7 +100,7 @@ function break_time(x, y) {
 
     function minutesTimer() {
         minutes = minutes - 1;
-        if(minutes < 10) { 
+        if (minutes < 10) {
             minutes = '0' + minutes;
         }
         document.getElementById('minutes').innerHTML = minutes;
@@ -108,7 +108,7 @@ function break_time(x, y) {
 
     function secondsTimer() {
         seconds = seconds - 1;
-        if(seconds < 10) { 
+        if (seconds < 10) {
             seconds = '0' + seconds;
         }
         document.getElementById('seconds').innerHTML = seconds;
@@ -125,21 +125,21 @@ function break_time(x, y) {
 
                 document.getElementById('total_count').innerHTML = total_count;
                 document.getElementById('done').classList.add('show_message');
-                
+
                 setTimeout(removeMessage, 10000);
 
 
                 /*
                     Prevent users from clicking break options after break has ended.
                 */
-                longBreak.disabled = true; 
-                shortBreak.disabled = true; 
+                longBreak.disabled = true;
+                shortBreak.disabled = true;
                 ring.play();
 
                 /* 
                     Reset to default pomodoro time (25 minutes)
                 */
-                minutes = 25; 
+                minutes = 25;
                 seconds = '00';
 
                 document.getElementById('minutes').innerHTML = minutes;
@@ -166,13 +166,13 @@ function pomodoro_start() {
             shortBreak.disabled = false;
         }
     }
-   
+
     //document.getElementById('pomodoro').innerHTML = 'Pause'; // turn pomodoro button to pause (for pause/resume feature)
     pomodoro.disabled = true; // prevents users from spamming the pomodoro button, which would mess up the countdown
-    shortBreak.disabled = true; 
-    increaseTime.disabled = true; 
-    decreaseTime.disabled = true; 
-    
+    shortBreak.disabled = true;
+    increaseTime.disabled = true;
+    decreaseTime.disabled = true;
+
     minutes -= 1;    // default values: minutes = 24, seconds = 59 (add buttons to change this default)
     seconds = 59;
 
@@ -190,7 +190,7 @@ function pomodoro_start() {
 
     function minutesTimer() {
         minutes = minutes - 1;
-        if(minutes < 10) {
+        if (minutes < 10) {
             minutes = '0' + minutes;
         }
         document.getElementById('minutes').innerHTML = minutes;
@@ -198,7 +198,7 @@ function pomodoro_start() {
 
     function secondsTimer() {
         seconds = seconds - 1;
-        if(seconds < 10) { 
+        if (seconds < 10) {
             seconds = '0' + seconds;
         }
         document.getElementById('seconds').innerHTML = seconds;
@@ -213,7 +213,7 @@ function pomodoro_start() {
 
                 document.getElementById('total_count').innerHTML = total_count;
                 document.getElementById('done').classList.add('show_message');
-                
+
                 setTimeout(removeMessage, 10000);
 
                 pomodoro.disabled = false;
@@ -222,9 +222,9 @@ function pomodoro_start() {
                 decreaseTime.disabled = false;
                 num_of_work_intervals += 1; // +1 everytime a work interval is completed 
 
-                if (num_of_work_intervals == 4) { 
-                    longBreak.disabled = false; 
-                    num_of_work_intervals = 0; 
+                if (num_of_work_intervals == 4) {
+                    longBreak.disabled = false;
+                    num_of_work_intervals = 0;
                 }
                 ring.play();
             }
@@ -233,9 +233,9 @@ function pomodoro_start() {
     }
 }
 
-function removeMessage() { 
+function removeMessage() {
     document.getElementById('done').classList.remove('show_message');
-    document.getElementById('done').innerHTML ='';
+    document.getElementById('done').innerHTML = '';
 }
 
 /*
