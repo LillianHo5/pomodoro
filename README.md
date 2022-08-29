@@ -11,6 +11,6 @@ https://lillianho5.github.io/pomodoro/
 * Pop up message notifying user that the session has ended, after the timer hits 0 minutes and 0 seconds
 
 ## Features to add: 
-- [ ] + and - buttons to increase/decrease time interval for work time 
+- [x] + and - buttons to increase/decrease time interval for work time 
 - [ ] pause button and a resume feature
-- [ ] measure to prevent users from clicking the break button in the middle of a work session
+- [x] measure to prevent users from clicking the break button in the middle of a work session
