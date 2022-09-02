@@ -5,16 +5,16 @@ var minutes_interval;
 var seconds_interval;
 var short_clicked = false;
 var long_clicked = false;
-var num_of_work_intervals = 0; // keep track of how many work intervals user has completed to enable long break 
+var num_of_work_intervals = 0; // keep track of how many work intervals user has completed to enable long break button to be clicked
 
 var pomodoro_clicked = false;
 var paused = false;
-var ring = new Audio('bell.mp3');
-var pomodoro = document.getElementById('pomodoro');
-var shortBreak = document.getElementById('short_break');
-var longBreak = document.getElementById('long_break');
-var increaseTime = document.getElementById('increase');
-var decreaseTime = document.getElementById('decrease');
+const ring = new Audio('bell.mp3');
+const pomodoro = document.getElementById('pomodoro');
+const shortBreak = document.getElementById('short_break');
+const longBreak = document.getElementById('long_break');
+const increaseTime = document.getElementById('increase');
+const decreaseTime = document.getElementById('decrease');
 
 function start() {
     document.getElementById('total_count').innerHTML = total_count;
@@ -83,6 +83,12 @@ longBreak.addEventListener('click', function handleLongClick() {
     break_time(9, 59)
 });
 
+/**
+ * Allows users to take a break after completing a work session
+ * upon clicking the "short break" or "long break" button.
+ * @param {*} x - number of minutes in break
+ * @param {*} y - number of seconds in break 
+ */
 function break_time(x, y) {
     if (long_clicked || short_clicked) {
         longBreak.disabled = true;

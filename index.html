@@ -69,14 +69,38 @@
         <button id="pomodoro" class="btn" onclick="pomodoro_start()">Pomodoro</button>
         <button id="short_break" class="btn">Short Break</button>
         <button id="long_break" class="btn">Long Break</button>
-        <!-- Reset to default values -->
-        <!-- a href="index.html"><i class="fa-solid fa-arrows-rotate fa-2x"></i></a> -->
     </div>
 
-    <!-- To-Do Button -->
-    <!-- <div class="container buttons" id="to-do">
-        <button id="add-task" class="btn">+</button>
-    </div> -->
+    <!-- Info Button -->
+    <div class="container buttons" id="info-button">
+        <button class="btn rounded-btn" data-bs-toggle="modal" data-bs-target="#infoModal">
+            ?
+        </button>
+    </div>
+
+    <!-- Info Modal -->
+    <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="infoModalLabel">Instructions</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h5>Work Sessions</h5>
+                    <p>To start a work session, click on the <mark>Pomodoro</mark> button. You can adjust the amount of time you would 
+                    like to work in a given interval by clicking the <mark>+</mark> and <mark>-</mark> buttons!</p>
+                    <h5>Breaks</h5>
+                    <p>Congratulations! After completing a work session, you are given the option to take a <mark>short break</mark>, 
+                        which is 5 minutes long, before starting another work session. During this time, be sure to drink a glass of water or stretch! 
+                        In order to take a <mark>long break</mark>, you must complete 4 sessions.</p> 
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -86,7 +110,7 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
 
-    <!-- clock.js -->
+    <!-- clock.js/custom js-->
     <script src="clock.js"></script>
 </body>
 

@@ -13,7 +13,6 @@ body {
 
 #study-count {
     text-align: center;
-
 }
 
 .study {
@@ -50,6 +49,15 @@ body {
     margin: 10px;
 }
 
+.rounded-btn { 
+    padding: 1rem 1.5rem;
+    border-radius: 100%;
+}
+
+#info-button { 
+    justify-content: end;
+    align-items:flex-end;
+}
 
 .fa-play,
 .fa-arrows-rotate {
