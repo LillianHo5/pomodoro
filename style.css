@@ -28,10 +28,6 @@ body {
     border: 5px solid #fff;
     border-radius: 30px;
     display: flex;
-    /* 
-    * justify-content aligns horizontally 
-    * align-items aligns vertically
-    */
     justify-content: center;
     align-items: center;
 }

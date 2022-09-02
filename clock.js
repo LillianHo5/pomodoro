@@ -25,63 +25,63 @@ function start() {
     longBreak.disabled = true; // disable by default so user cannot jump around from break to pomodoro and vice versa
 }
 
-increaseTime.addEventListener('click', function handleIncreaseClick() {
-    if (minutes >= 60) {
-        increaseTime.disabled = true;
-    } else {
-        minutes = minutes + 5;
-        document.getElementById('minutes').innerHTML = minutes;
-        decreaseTime.disabled = false;
-    }
-});
+increaseTime.addEventListener('click', () => {
+        if (minutes >= 60) {
+            increaseTime.disabled = true;
+        } else {
+            minutes = minutes + 5;
+            document.getElementById('minutes').innerHTML = minutes;
+            decreaseTime.disabled = false;
+        }
+    });
 
-decreaseTime.addEventListener('click', function () {
-    if (minutes <= 10) {
-        decreaseTime.disabled = true;
-    } else {
-        minutes -= 5;
-        document.getElementById('minutes').innerHTML = minutes;
-        increaseTime.disabled = false;
-    }
-});
+decreaseTime.addEventListener('click', () => {
+        if (minutes <= 10) {
+            decreaseTime.disabled = true;
+        } else {
+            minutes -= 5;
+            document.getElementById('minutes').innerHTML = minutes;
+            increaseTime.disabled = false;
+        }
+    });
 
-shortBreak.addEventListener('click', function handleShortClick() {
-    short_clicked = true;
-    if (long_clicked || pomodoro_clicked) {
-        if (long_clicked) {
-            clearInterval(minutes_interval);
-            clearInterval(seconds_interval);
-            long_clicked = false;
-            longBreak.disabled = false;
+shortBreak.addEventListener('click', () => {
+        short_clicked = true;
+        if (long_clicked || pomodoro_clicked) {
+            if (long_clicked) {
+                clearInterval(minutes_interval);
+                clearInterval(seconds_interval);
+                long_clicked = false;
+                longBreak.disabled = false;
+            }
+            if (pomodoro_clicked) {
+                clearInterval(minutes_interval);
+                clearInterval(seconds_interval);
+                pomodoro_clicked = false;
+                pomodoro.disabled = false;
+            }
         }
-        if (pomodoro_clicked) {
-            clearInterval(minutes_interval);
-            clearInterval(seconds_interval);
-            pomodoro_clicked = false;
-            pomodoro.disabled = false;
-        }
-    }
-    break_time(4, 59);
-});
+        break_time(4, 59);
+    });
 
-longBreak.addEventListener('click', function handleLongClick() {
-    long_clicked = true;
-    if (short_clicked || pomodoro_clicked) {
-        if (short_clicked) {
-            clearInterval(minutes_interval);
-            clearInterval(seconds_interval);
-            short_clicked = false;
-            shortBreak.disabled = false;
+longBreak.addEventListener('click', () => {
+        long_clicked = true;
+        if (short_clicked || pomodoro_clicked) {
+            if (short_clicked) {
+                clearInterval(minutes_interval);
+                clearInterval(seconds_interval);
+                short_clicked = false;
+                shortBreak.disabled = false;
+            }
+            if (pomodoro_clicked) {
+                clearInterval(minutes_interval);
+                clearInterval(seconds_interval);
+                pomodoro_clicked = false;
+                pomodoro.disabled = false;
+            }
         }
-        if (pomodoro_clicked) {
-            clearInterval(minutes_interval);
-            clearInterval(seconds_interval);
-            pomodoro_clicked = false;
-            pomodoro.disabled = false;
-        }
-    }
-    break_time(9, 59)
-});
+        break_time(9, 59);
+    });
 
 /**
  * Allows users to take a break after completing a work session
@@ -157,7 +157,7 @@ function break_time(x, y) {
     }
 }
 
-function pomodoro_start() {
+pomodoro.addEventListener('click', function () {
     if (long_clicked || short_clicked) {
         if (long_clicked) {
             clearInterval(minutes_interval);
@@ -237,7 +237,7 @@ function pomodoro_start() {
             seconds = 60;
         }
     }
-}
+});
 
 function removeMessage() {
     document.getElementById('done').classList.remove('show_message');
