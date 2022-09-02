@@ -12,6 +12,7 @@ https://lillianho5.github.io/pomodoro/
 
 ## Features to add: 
 - [x] + and - buttons to increase/decrease time interval for work time 
-- [ ] pause button and a resume feature
 - [x] measure to prevent users from clicking the break button in the middle of a work session
-- [ ] instruction window to explain site and features 
+- [x] instruction window to explain site and features 
+- [ ] pause button and a resume feature
+- [ ] customization feature that allows users to change color scheme of page
