@@ -45,14 +45,14 @@ body {
     margin: 10px;
 }
 
-.rounded-btn { 
+.rounded-btn {
     padding: 1rem 1.5rem;
     border-radius: 100%;
 }
 
-#info-button { 
+#info-button {
     justify-content: end;
-    align-items:flex-end;
+    align-items: flex-end;
 }
 
 .fa-play,
